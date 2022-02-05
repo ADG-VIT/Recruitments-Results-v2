@@ -1,11 +1,11 @@
 #mainForm {
-	/* display: none; */
+	display: none;
 }
 #selected {
-	display: none;
+	/* display: none; */
 }
 #rejected {
-	display: none;
+	/* display: none; */
 }
 
 /* Scrollbar */
@@ -146,7 +146,13 @@ body {
 
 .message {
 	/* color: red; */
+	width: 100%;
+	/* background-color: red; */
 	margin-top: 0 !important;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 /* .selection_status {
 	color: red;
@@ -181,6 +187,15 @@ body {
 	color: rgba(255, 255, 255, 0.7);
 	margin: 5px;
 	margin-bottom: 10%;
+}
+
+.name {
+	width: 90%;
+	/* background-color: red; */
+	text-align: center;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 .selected_domain {

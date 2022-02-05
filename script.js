@@ -17,6 +17,9 @@ function searchText() {
 	var rejected = document.querySelector("#rejected");
 	var selected = document.querySelector("#selected");
 	var form = document.querySelector("#mainForm");
+	var nameText = document.querySelector("#name");
+	var domainText = document.querySelector("#domain");
+	var interviewText = document.querySelector("#date");
 	output = "";
 	var search = document.querySelector(".input").value.toUpperCase().trim();
 	const adg = `https://recruitment2022.herokuapp.com/user/getResult?regno=${search}`;
@@ -26,54 +29,69 @@ function searchText() {
 			return res.json();
 		})
 		.then(function (data) {
-			console.log(data);
+			// console.log(data);
 			//No Record Found
-			if (data.message == "User does Not Exist") {
+			if (data.message == "User not found") {
 				if (search == "") {
-					// output += `<p class="error">Please enter a Registration Number</p>`;
-					output += `<p class="error">${data.status}</p>`;
+					output += `<p class="error">Please enter a Registration Number</p>`;
 				} else {
-					output += `<p class="error">Uh oh! Please enter the correct Registration Number.</p>`;
+					output += `<p class="error">Uh oh! We could not find your Registration Number.</p>`;
 				}
 			}
 			//Rejected
 			else if (
-				data.message ==
-				"Hey, you missed it by a narrow margin. All the best for your future endeavours!"
+				data.user.isSelectedTechnical == false &&
+				data.user.isSelectedDesign == false &&
+				data.user.isSelectedManagement == false
 			) {
-				// output += `<p>${data.message}</p>`;
-				rejected.style.display = "flex";
-				mainForm.style.display = "none";
-			} else if (
-				data.message ==
-				"Hey, you missed it by a narrow margin. See you next year. Till then keep hustling."
-			) {
-				//output += `<p>${data.message}</p>`;
+				nameText = data.user.name;
 				rejected.style.display = "flex";
 				mainForm.style.display = "none";
 			}
 			//Selected in Tech
-			else {
-				/*output += `<div class="container info">   
-				
-            <p>
-                ${data.message}
-            </p> 
-            </div >`;*/
+			else if (data.user.isSelectedTechnical == true) {
+				nameText.innerHTML = data.user.name;
+				interviewText.innerHTML =
+					data.user.date + ", " + data.user.time;
+				if (data.user.isSelectedManagement == true) {
+					domainText.innerHTML =
+						"under Technical and Management Domain";
+				} else if (data.user.isSelectedDesign == true) {
+					domainText.innerHTML = "under Technical and Design Domain";
+				} else {
+					domainText.innerHTML = "under Technical Domain";
+				}
 				selected.style.display = "flex";
 				mainForm.style.display = "none";
 			}
 			//Selected in Management
-
-			//Selected in Design
-
-			//Selected in TM
-
-			//Selected in TD
-
-			//Selected in MD
-
-			//Selected in TMD
+			else if (data.user.isSelectedManagement == true) {
+				nameText.innerHTML = data.user.name;
+				interviewText.innerHTML =
+					data.user.date + ", " + data.user.time;
+				if (data.user.isSelectedDesign == true) {
+					domainText.innerHTML = "under Management and Design Domain";
+				} else {
+					domainText.innerHTML = "under Management Domain";
+				}
+				selected.style.display = "flex";
+				mainForm.style.display = "none";
+			} else if (data.user.isSelectedDesign == true) {
+				nameText.innerHTML = data.user.name;
+				interviewText.innerHTML =
+					data.user.date + ", " + data.user.time;
+				domainText.innerHTML = "under Design Domain";
+				selected.style.display = "flex";
+				mainForm.style.display = "none";
+			} else {
+				nameText.innerHTML = data.user.name;
+				interviewText.innerHTML =
+					data.user.date + ", " + data.user.time;
+				domainText.innerHTML =
+					"under Technical, Management and Design Domain";
+				selected.style.display = "flex";
+				mainForm.style.display = "none";
+			}
 
 			document.querySelector(".output").innerHTML = output;
 			document.querySelector("#search").disabled = false;
