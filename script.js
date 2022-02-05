@@ -18,20 +18,25 @@ function searchText() {
 	var selected = document.querySelector("#selected");
 	var form = document.querySelector("#mainForm");
 	var nameText = document.querySelector("#name");
+	var nameText1 = document.querySelector("#name1");
 	var domainText = document.querySelector("#domain");
 	var interviewText = document.querySelector("#date");
 	output = "";
 	var search = document.querySelector(".input").value.toUpperCase().trim();
-	const adg = `https://recruitment2022.herokuapp.com/user/getResult?regno=${search}`;
+	console.log(search);
+	const adg = `https://recruitment2022.herokuapp.com/user/getResults?regno=${search}`;
 	fetch(adg)
 		.then(function (res) {
 			// console.log(res.json());
 			return res.json();
 		})
 		.then(function (data) {
-			// console.log(data);
+			console.log(data);
 			//No Record Found
-			if (data.message == "User not found") {
+			if (
+				data.msg == "Invalid Registration Number" ||
+				data.msg == "User not found"
+			) {
 				if (search == "") {
 					output += `<p class="error">Please enter a Registration Number</p>`;
 				} else {
@@ -44,7 +49,8 @@ function searchText() {
 				data.user.isSelectedDesign == false &&
 				data.user.isSelectedManagement == false
 			) {
-				nameText = data.user.name;
+				// console.log(data.user.name);
+				nameText1.innerHTML = data.user.name;
 				rejected.style.display = "flex";
 				mainForm.style.display = "none";
 			}
@@ -52,7 +58,7 @@ function searchText() {
 			else if (data.user.isSelectedTechnical == true) {
 				nameText.innerHTML = data.user.name;
 				interviewText.innerHTML =
-					data.user.date + ", " + data.user.time;
+					data.user.interDate + ", " + data.user.timeOfInter + "PM";
 				if (data.user.isSelectedManagement == true) {
 					domainText.innerHTML =
 						"under Technical and Management Domain";
@@ -68,7 +74,7 @@ function searchText() {
 			else if (data.user.isSelectedManagement == true) {
 				nameText.innerHTML = data.user.name;
 				interviewText.innerHTML =
-					data.user.date + ", " + data.user.time;
+					data.user.interDate + ", " + data.user.timeOfInter + "PM";
 				if (data.user.isSelectedDesign == true) {
 					domainText.innerHTML = "under Management and Design Domain";
 				} else {
@@ -79,14 +85,14 @@ function searchText() {
 			} else if (data.user.isSelectedDesign == true) {
 				nameText.innerHTML = data.user.name;
 				interviewText.innerHTML =
-					data.user.date + ", " + data.user.time;
+					data.user.interDate + ", " + data.user.timeOfInter + "PM";
 				domainText.innerHTML = "under Design Domain";
 				selected.style.display = "flex";
 				mainForm.style.display = "none";
 			} else {
 				nameText.innerHTML = data.user.name;
 				interviewText.innerHTML =
-					data.user.date + ", " + data.user.time;
+					data.user.interDate + ", " + data.user.timeOfInter + "PM";
 				domainText.innerHTML =
 					"under Technical, Management and Design Domain";
 				selected.style.display = "flex";
