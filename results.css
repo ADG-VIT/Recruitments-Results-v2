@@ -1,3 +1,13 @@
+#mainForm {
+	/* display: none; */
+}
+#selected {
+	display: none;
+}
+#rejected {
+	display: none;
+}
+
 /* Scrollbar */
 :root::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -111,6 +121,7 @@ body {
 	padding: 50px 35px 50px 35px;
 	background: #1f1f1f;
 	border-radius: 25px;
+	/* transition: 1s; */
 }
 
 .heading,
@@ -286,6 +297,12 @@ input:focus {
 	padding-right: 8%;
 	padding-bottom: 5%;
 }
+
+.error {
+	color: red;
+	padding-top: 5%;
+}
+
 /* 1280,990,768,576 and 400 */
 @media screen and (max-width: 400px) {
 	.main-form {
