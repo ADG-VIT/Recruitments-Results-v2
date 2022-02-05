@@ -212,10 +212,9 @@ input:focus {
 	background: #383838;
 	outline: 2px solid rgba(255, 255, 255, 0.4);
 }
-
 .btn1 {
-	-webkit-border-radius: 12;
-	-moz-border-radius: 12;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
 	border-radius: 12px;
 	font-family: GilroySemiBold;
 	color: #ffffff;
@@ -229,7 +228,7 @@ input:focus {
 	margin-top: 3%;
 	cursor: pointer;
 	text-align: center;
-	/* height: 60px; */
+	height: 60px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
