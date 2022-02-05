@@ -1,11 +1,11 @@
 #mainForm {
-	display: none;
+	/* display: none; */
 }
 #selected {
-	/* display: none; */
+	display: none;
 }
 #rejected {
-	/* display: none; */
+	display: none;
 }
 
 /* Scrollbar */
