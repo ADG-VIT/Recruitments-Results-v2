@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="./results.css" />
+		<link rel="icon" type="image/png" href="f.png" />
+		<script src="./script.js" async></script>
+		<title>Results | ADG VIT</title>
+		<style>
+			#main-form {
+				/* display: none; */
+			}
+			#selected {
+				display: none;
+			}
+			#rejected {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<!-- Input Starts -->
+			<div class="main-form" id="main-form">
+				<img id="adglogo2" src="../adg_logo.svg" alt="ADG Logo" />
+				<h1 class="heading">Round 1 Result</h1>
+				<p class="para">
+					Check your Result with VIT Registration Number
+				</p>
+				<input
+					class="input"
+					type="text"
+					placeholder="Enter Registration Number in Uppercase"
+				/>
+
+				<button class="btn1" id="search">Check Round 1 Result</button>
+				<div class="output"></div>
+			</div>
+			<!-- Input Ends -->
+			<!-- Selected Starts -->
+			<div class="main-card" id="selected">
+				<div class="result-text">
+					<img src="./17 5.png" class="img" />
+					<div class="message">
+						<div class="congratulations">Congratulations!</div>
+						<div class="student_name">Utkarsh Dixit</div>
+					</div>
+				</div>
+				<div class="result-message">
+					<div class="selection_status">
+						You've been Selected for Round 2
+					</div>
+					<div class="selected_domain">
+						Under Technical, Management Domain
+					</div>
+					<div class="next">What's Next</div>
+
+					<div class="step">
+						Click the button below to join our Discord Server. Your
+						Interview is Scheduled on
+					</div>
+
+					<div class="date">06 Feb 2022, 12:30 PM</div>
+					<button class="btn1" id="discord">
+						<img src="./bi_discord.png" /> &nbsp Join Discord Server
+					</button>
+				</div>
+			</div>
+			<!-- Selected Ends -->
+			<!-- Rejected Starts -->
+			<div class="main-card" id="rejected">
+				<div class="result-text">
+					<img src="./41 5.png" class="img" />
+					<div class="message">
+						<div class="congratulations">
+							Better Luck Next Time!
+						</div>
+						<div class="student_name">Utkarsh Dixit</div>
+					</div>
+				</div>
+				<div class="result-message">
+					<div class="selection_status">
+						Unfortunately you didn't make it
+					</div>
+					<div class="next-rej">What's Next</div>
+
+					<div class="step">
+						Don’t Worry, you can still learn all the exciting things
+						in the world of technology and development with us
+						throughout the year, and try next year.
+					</div>
+				</div>
+			</div>
+			<!-- Rejected Ends -->
+		</div>
+	</body>
+</html>

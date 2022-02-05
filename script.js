@@ -6,6 +6,11 @@ document.querySelector(".input").addEventListener("keyup", function (event) {
 	}
 });
 
+document.querySelector("#discord").addEventListener("click", openDiscord);
+function openDiscord() {
+	window.location.href = "https://discord.gg/afF568T6de";
+}
+
 function searchText() {
 	document.querySelector("#search").disabled = true;
 	document.querySelector("#search").innerHTML = "Searching in the pile...";
