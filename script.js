@@ -43,6 +43,10 @@ function searchText() {
 					output += `<p class="error">Uh oh! We could not find your Registration Number.</p>`;
 				}
 			}
+			//Result awaited
+			else if (data.msg == "Result Awaited") {
+				output += `<p class="error">Results are currently awaited, they will be released soon.</p>`;
+			}
 			//Rejected
 			else if (
 				data.user.isSelectedTechnical == false &&
