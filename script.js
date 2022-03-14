@@ -7,7 +7,7 @@ document.querySelector(".input").addEventListener("keyup", function (event) {
 });
 
 document.querySelector("#discord").addEventListener("click", openDiscord);
-function openDiscord() {
+function openDiscord() { 
 	window.location.href = "https://discord.gg/afF568T6de";
 }
 
@@ -20,7 +20,7 @@ function searchText() {
 	var nameText = document.querySelector("#name");
 	var nameText1 = document.querySelector("#name1");
 	var domainText = document.querySelector("#domain");
-	var interviewText = document.querySelector("#date");
+	//var interviewText = document.querySelector("#date");
 	output = "";
 	var search = document.querySelector(".input").value.toUpperCase().trim();
 	console.log(search);
@@ -61,8 +61,8 @@ function searchText() {
 			//Selected in Tech
 			else if (data.user.isSelectedTechnical == true) {
 				nameText.innerHTML = data.user.name;
-				interviewText.innerHTML =
-					data.user.interDate + ", " + data.user.timeOfInter + "PM";
+				// interviewText.innerHTML =
+				// 	data.user.interDate + ", " + data.user.timeOfInter + "PM";
 				if (data.user.isSelectedManagement == true) {
 					domainText.innerHTML =
 						"under Technical and Management Domain";
@@ -77,8 +77,8 @@ function searchText() {
 			//Selected in Management
 			else if (data.user.isSelectedManagement == true) {
 				nameText.innerHTML = data.user.name;
-				interviewText.innerHTML =
-					data.user.interDate + ", " + data.user.timeOfInter + "PM";
+				// interviewText.innerHTML =
+				// 	data.user.interDate + ", " + data.user.timeOfInter + "PM";
 				if (data.user.isSelectedDesign == true) {
 					domainText.innerHTML = "under Management and Design Domain";
 				} else {
@@ -88,15 +88,15 @@ function searchText() {
 				mainForm.style.display = "none";
 			} else if (data.user.isSelectedDesign == true) {
 				nameText.innerHTML = data.user.name;
-				interviewText.innerHTML =
-					data.user.interDate + ", " + data.user.timeOfInter + "PM";
+				// interviewText.innerHTML =
+				// 	data.user.interDate + ", " + data.user.timeOfInter + "PM";
 				domainText.innerHTML = "under Design Domain";
 				selected.style.display = "flex";
 				mainForm.style.display = "none";
 			} else {
 				nameText.innerHTML = data.user.name;
-				interviewText.innerHTML =
-					data.user.interDate + ", " + data.user.timeOfInter + "PM";
+				// interviewText.innerHTML =
+				// 	data.user.interDate + ", " + data.user.timeOfInter + "PM";
 				domainText.innerHTML =
 					"under Technical, Management and Design Domain";
 				selected.style.display = "flex";
@@ -106,6 +106,6 @@ function searchText() {
 			document.querySelector(".output").innerHTML = output;
 			document.querySelector("#search").disabled = false;
 			document.querySelector("#search").innerHTML =
-				"Check Round 1 Result";
+				"Recruitments '22 Result";
 		});
 }
